@@ -14,8 +14,7 @@ Hero = BaseEntity.extend({
 
     // 2nd Argument - initialize() ----------------------------------------
 	initialize: function(){
-        // initialize and define vars -------------
-
+        // initialize and define vars ------------
         var heroModel = this;
         // var isKeyUp = heroModel.addEventListener('KeyUp');   What is the intent?
         // var entity = Crafty.e("2D, " + gameContainer.conf.get('renderType') + ", Twoway, Keyboard, hero	, SpriteAnimation, Mouse, Collision, MouseHover, Gravity, death, ViewportFollow	");
