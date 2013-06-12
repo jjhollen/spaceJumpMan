@@ -1,7 +1,7 @@
 window.onload = function() {
         
-    var version = null,
-    	today = new Date();
+    var version = null, // Variable is not used anywhere in the current program - James
+    today = new Date(); 
 	
 	var screenWidth = 1000;
 	var screenHeight = 600;

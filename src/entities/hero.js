@@ -1,27 +1,40 @@
+// The Hero class is the player's entity
+
 Hero = BaseEntity.extend({
-	defaults: {
+   
+   // 1st Argument - Class defaults... more like a struct ----------------------------------------
+    defaults: {
 	    'speed' : 5,
-		//the less you make the width, you cut off the right side of the sprite with DOM -- make this below 70 to fall down the holes
-		'widthHero' : 80,
+		'widthHero' : 80, 
 		'heightHero' : 56
-//		__move: {left: false, right: false, up: false, down: false},    
+        //_move: {left: false, right: false, up: false, down: false} What is the intent?
 	},
+
+    // End Class defaults -----------------------------------
+
+    // 2nd Argument - initialize() ----------------------------------------
 	initialize: function(){
-//		var isKeyUp = .this('KeyUp');
-		var model = this;
-//		var entity = Crafty.e("2D, " + gameContainer.conf.get('renderType') + ", Twoway, Keyboard, hero	, SpriteAnimation, Mouse, Collision, MouseHover, Gravity, death, ViewportFollow	");
+        // initialize and define vars -------------
+
+        var heroModel = this;
+        // var isKeyUp = heroModel.addEventListener('KeyUp');   What is the intent?
+        // var entity = Crafty.e("2D, " + gameContainer.conf.get('renderType') + ", Twoway, Keyboard, hero	, SpriteAnimation, Mouse, Collision, MouseHover, Gravity, death, ViewportFollow	");
  		var entity = Crafty.e("2D, " + gameContainer.conf.get('renderType') + ", Twoway, Keyboard, hero	, SpriteAnimation, Mouse, MouseHover, Gravity, Collision, death");
-// console.log(entity.w);
+        
+        // End initialize and define vars --------
+
+
+        // console.log(entity.w);
 		entity
 //			.customControls(1)
-//			.attr({x: ((Crafty.viewport.width/2) - (entity.w/2)), y: 0, z: 300, w: model.get('widthHero'), h: model.get('heightHero')})
-			.attr({x: 80, y: 0, z: 300, w: model.get('widthHero'), h: model.get('heightHero')})
+//			.attr({x: ((Crafty.viewport.width/2) - (entity.w/2)), y: 0, z: 300, w: heroModel.get('widthHero'), h: heroModel.get('heightHero')})
+			.attr({x: 80, y: 0, z: 300, w: heroModel.get('widthHero'), h: heroModel.get('heightHero')})
 			.animate("walking", 0, 0, 2)
-//            .multiway(model.get('speed'))
+//            .multiway(heroModel.get('speed'))
 //            .viewportFollow(32, new Crafty.polygon(
 //                [0,0], [20, 0],
 //                [20, 40], [0, 40]))
-            .twoway(model.get('speed'))
+            .twoway(heroModel.get('speed'))
 			.gravity("platform")
 //			.gravity()
 			.gravityConst(.5)
@@ -30,7 +43,7 @@ Hero = BaseEntity.extend({
 //			})
 //            .viewportFollow(32, new Crafty.polygon( [0,0], [200, 0], [200, 400], [0, 400] ))
 
-//			.onhit("Item", model.collectItem)
+//			.onhit("Item", heroModel.collectItem)
 			
 			//List of binds == EnterFrame, Click, MouseOver, KeyDown, KeyUp, RemoveComponent, Draw
 
@@ -96,15 +109,21 @@ Hero = BaseEntity.extend({
  
 		entity.origin(entity.w/2, entity.h/2);
  
-		model.set({'entity' : entity });
+		heroModel.set({'entity' : entity });
 	},
+    // End 2nd Arguement - initialize() ---------------------------
+
+    // 3rd Argument - collectItem(data) -------------------------------------
 	collectItem: function(data) {
 		item = data[0].obj;
 		item.collect();
 	},
-	
+	// End 3rd Arguement - collectItem(data) ----------------------
+
+    // 4th Arguement - collect() --------------------------------------------
 	collect: function() {
 		this.destroy();
-	},
+	}
+    // End 4th Arguement - collect() ------------------------------
 
-});
+}); // End BaseEntity.extend
