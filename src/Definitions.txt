@@ -1,0 +1,20 @@
+Game Dictionary
+
+
+What is?
+
+Class gameContainer 
+
+
+
+
+
+Class Crafty
+    Created By: From crafty.com
+    Defined in: src/libs/crafty(version).js
+    Purpose: The crafty class contains objects and functions used for developing games in javascript. It relies heavily on Jquery for functionality. 
+
+Crafty.init
+    Created By: From crafty.com
+    Defined in: src/libs/crafty(version).js
+    Purpose: 
